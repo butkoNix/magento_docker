@@ -1,0 +1,12 @@
+/*
+!/about_debug
+!/bin
+!/docker/cron
+!/docker/nginx/default.conf.template
+!/docker/nginx/Dockerfile
+!/docker/nginx/nginx.logrotate.conf
+!/docker/php
+!/docker/docker-compose.yml
+!/composer.json
+!/magento_creds.txt
+!/README.md
