@@ -8,7 +8,6 @@ RUN apt-get update -y \
         logrotate \
     && rm -rf /var/lib/apt/lists/*
 
-
 ENV SERVER_NAME localhost
 ENV MAGE_ROOT /var/www
 ENV MAGE_MODE developer
