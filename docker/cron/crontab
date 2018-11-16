@@ -1,0 +1,4 @@
+* * * * * /usr/local/bin/php /var/www/bin/magento cron:run >> /var/www/var/log/run.cron.log
+0 * * * * mkdir -p /var/www/var/dumps && /usr/bin/mysqldump -u $MYSQL_ENV_MYSQL_USER -p$MYSQL_ENV_MYSQL_PASSWORD -h mysql $MYSQL_ENV_MYSQL_DATABASE | gzip > /var/www/var/dumps/$(date +'\%Y-\%m-\%d_\%T').gz
+0 0 * * * find /var/www/var/dumps/* -type f -mtime +7 ! -name '20*-*-*_01:*:*.gz' -exec rm {} \;
+0 0 * * 0 find /var/www/var/dumps/* -type f -mtime +30 -exec rm {} \;
