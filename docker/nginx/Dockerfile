@@ -1,5 +1,8 @@
 FROM nginx:1.9
-RUN adduser --disabled-password --gecos '' higher
+RUN adduser --disabled-password --gecos '' higher \
+    && usermod -d /home/www-data higher \
+    && usermod -s /bin/bash higher
+
 RUN apt-get update -y \
     && apt-get install -y \
         logrotate \
@@ -8,9 +11,9 @@ RUN apt-get update -y \
 
 ENV SERVER_NAME localhost
 ENV MAGE_ROOT /var/www
-ENV MAGE_MODE production
+ENV MAGE_MODE developer
 
-RUN sed -i 's/user *nginx;/user www-data;/g' /etc/nginx/nginx.conf
+RUN sed -i 's/user *nginx;/user higher;/g' /etc/nginx/nginx.conf
 
 COPY nginx.logrotate.conf /etc/logrotate.d/
 COPY default.conf.template /
