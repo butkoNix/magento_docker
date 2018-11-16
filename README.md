@@ -13,15 +13,6 @@ sudo reboot
 
 
 ## Установка
-1. Настроить доступ для файлов (для текущего пользователя и 'www-data' группы)
-```bash
-sudo ./bin/setup_permissions.sh
-```
-Если возникла ошибка: 'sudo: ./bin/setup_permissions.sh: command not found', запустить:
-```bash
-sudo chmod 777 ./bin/setup_permissions.sh
-```
-
 2. Настроить контейнеры с префиксом 'test':
 ```bash
 ./bin/setup_containers.sh
@@ -34,19 +25,9 @@ Public Key - это username, Private Key - это password
 ./bin/cli.sh composer install
 ```
 
-5. После установки модулей и остальных файлов/директорий - снова настроить права доступа к файлам проекта:
-```bash
-sudo ./bin/setup_permissions.sh
-```
-
-6. Войти в режим командной строки из контейнера PHP:
-```bash
-docker exec -it test_php_1 /bin/bash
-```
-
 7. Команда для установки Magento 2 с помощью командной строки. Выполняется из контейнера php - test_php_1 (шаг 7)
 ```bash
-./bin/install_data.sh
+./bin/cli.sh /bin/bash ./bin/install_data.sh
 ```
 
 8. После установки проекта - снова настроить права доступа к файлам проекта:

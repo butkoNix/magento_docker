@@ -1,5 +1,5 @@
 FROM nginx:1.9
-
+RUN adduser --disabled-password --gecos '' higher
 RUN apt-get update -y \
     && apt-get install -y \
         logrotate \

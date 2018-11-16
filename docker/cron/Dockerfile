@@ -8,7 +8,7 @@ ADD crontab /crontab.www-data
 ADD start.sh /start.sh
 
 RUN apt-get update && apt-get install -y --force-yes cron rsyslog mysql-client && apt-get clean
-RUN crontab -u www-data /crontab.www-data; \
+RUN crontab -u higher /crontab.www-data; \
   chmod +x /start.sh; \
   touch /var/log/cron.log
 
